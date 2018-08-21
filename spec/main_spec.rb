@@ -3,7 +3,7 @@ require './main'
 describe LinkedList do
 
     before (:each) do
-        @list = LinkedList.new
+        @list = LinkedList.new(5)
         @list.add(1)
         @list.add(2)
         @list.add(3)
@@ -11,12 +11,12 @@ describe LinkedList do
         @list.add(4)
     end
 
-    it "itemがlistに含まれているかをtrue or falseで取得する" do 
+    it "itemがlistに含まれているかをtrue or falseで取得する" do
         # 正常系
         expect(@list.contains(1)).to eq true
         expect(@list.contains(2)).to eq true
         # 異常系
-        expect(@list.contains(4)).to eq false
+        expect(@list.contains(5)).to eq false
     end
 
     it "indexに格納されたセル内のitemを取得する" do
@@ -40,7 +40,7 @@ describe LinkedList do
         # 異常系
         expect(@list.remove(5)).to eq nil
         # 3は3つ格納されていないため
-        expect(@list.remove(3)).to eq nilß
+        expect(@list.remove(3)).to eq nil
     end
 
     it "連結リストの先頭セル内のitemを取得する" do
