@@ -1,42 +1,25 @@
-class LinkedList
-  def initialize(length)
-    @length = length
-    @cell = Array.new()
-  end
+class List
+  attr_accessor :cell
 
-  def add(item)
-    @cell.push(item)
-  end
+  class Node
+    attr_accessor :data, :next
 
-  def remove(item)
-    if @cell.find_index(item)
-      @cell.delete_at(@cell.find_index(item))
-    else
-      nil
+    def initialize(data=nil)
+      @data = data
+      @next = nil
     end
   end
 
-  def get(item)
-    if item < 0 || !(item.integer?)
-      nil
-    else
-      @cell[item]
-    end
+  def initialize
+    @cell = Node.new
   end
 
-  def contains(item)
-    !(@cell.select { |m| m == item }.empty?)
-  end
-
-  def first
-    @cell.first
-  end
-
-  def last
-    @cell.last
-  end
-
-  def length
-    @cell.length
+  def append(data)
+    new_obj = Node.new(data)
+    @cell.next = new_obj
+    p "data:#{@data} next:#{@next}"
   end
 end
+
+list = List.new
+list.append('hello')
