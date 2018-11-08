@@ -27,7 +27,6 @@ class List
 end
 
 list = List.new
-p "data：\'#{list.cell.data}\' next : #{list.cell.next}"
 list.append('hello')
 list.append('world')
 list.append('LinkedList')
