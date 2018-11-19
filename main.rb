@@ -20,14 +20,54 @@ class List
     while tmp.next != 'nextPointIsNull' do
       tmp = tmp.next
     end
-    tmp.next = Node.new(data)
-    p "data：\'#{tmp.data}\' next : #{tmp.next}"
+    new_cell_object = Node.new(data)
+    tmp.next = new_cell_object
+    # p "data = #{data}, next = #{tmp.next}"
   end
+
+  def contains?(data)
+    tmp = @cell
+    while !tmp.nil?
+      if tmp.data == data
+        return true
+      end
+      tmp = tmp.next
+    end
+    return false
+  end
+
+  def show
+    p @cell.data
+  end
+
+  def get_item(index)
+    temp = @cell
+    index.times {|n|
+      if temp.next == 'nextPointIsNull'
+        return p nil
+      elsif index == n
+        puts temp.data
+      end
+      temp = temp.next
+    }
+    p temp.data
+  end
+
+  # def remove(data)
+  #   if contains?(data)
+  #     tmp = @cell
+  #     while tmp.data == data
+  #
+  #     end
+  #   else
+  #     return p 'data is none'
+  #   end
+  # end
 
 end
 
 list = List.new
-list.append('hello')
-list.append('world')
-list.append('LinkedList')
-list.append('taro')
+list.append(5)
+list.append('a')
+list.get_item(2)
+list.get_item(7)
